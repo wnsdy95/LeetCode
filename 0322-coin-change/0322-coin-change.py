@@ -20,12 +20,12 @@ class Solution(object):
 #         return sol
 
 
-        dp=[1e9] * (amount+1)
-        dp[0]=0
-        
+        # dp[i] := fewest # Of coins to make up i
+        dp = [0] + [amount + 1] * amount
+
         for coin in coins:
-            for i in range(coin, amount+1):
-                if i-coin>=0:
-                    dp[i]=min(dp[i], dp[i-coin]+1)
-        
-        return -1 if dp[-1]== 1e9 else dp[-1]
+          for i in range(coin, amount + 1):
+            dp[i] = min(dp[i], dp[i - coin] + 1)
+            # print(dp)
+
+        return -1 if dp[amount] == amount + 1 else dp[amount]
