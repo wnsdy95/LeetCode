@@ -6,8 +6,8 @@ def fun(s,dc,memo):
     if(dc[s]==1):
         return True
     for i in range(len(s)+1):
-        # print(dc)
-        # print(memo)
+        # print("dc: ",dc)
+        # print("memo: ",memo)
         if(dc[s[:i]]==1):
             a=fun(s[i:],dc,memo)
             if(a):
